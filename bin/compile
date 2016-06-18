@@ -1,0 +1,40 @@
+BUILD_DIR=$1
+CURRENT_DIR=$BUILD_DIR
+LIB_DIR=$BUILD_DIR/libopus
+PREFIX_DIR=$LIB_DIR/build/
+VENDOR_DIR=$BUILD_DIR/vendor
+mkdir -p $PREFIX_DIR
+mkdir -p $VENDOR_DIR
+
+install_opus(){
+  [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
+  cd $LIB_DIR
+  curl -O http://downloads.xiph.org/releases/opus/opus-1.1.tar.gz
+  tar -zxvf opus-1.1.tar.gz
+  cd opus-1.1
+  ./configure --prefix=$PREFIX_DIR
+  make -s V=0
+  make install
+  cd $CURRENT_DIR
+}
+
+
+cleanup(){  
+  if [ -d $LIB_DIR ]; then
+    rm -r libopus
+  fi
+}
+
+move(){
+  if [ -d $LIB_DIR ]; then
+    cd $LIB_DIR
+    mv build/include $VENDOR_DIR
+    mv build/lib $VENDOR_DIR
+    mv build/share $VENDOR_DIR
+    cd $CURRENT_DIR
+  fi
+}
+
+install_opus
+move
+cleanup
