@@ -14,6 +14,6 @@ If it is an existing project, just do:
 
 ``` sh 
 $ heroku buildpacks:set https://github.com/frostlight/opus-buildpack
-``
+```
 
 The library files will be in "vendor/lib".
