@@ -9,9 +9,9 @@ mkdir -p $VENDOR_DIR
 install_opus(){
   [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
   cd $LIB_DIR
-  curl -O http://downloads.xiph.org/releases/opus/opus-1.1.2.tar.gz
-  tar -zxvf opus-1.1.2.tar.gz
-  cd opus-1.1.2
+  curl -O https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz
+  tar -zxvf opus-1.2.1.tar.gz
+  cd opus-1.2.1
   ./configure --prefix=$PREFIX_DIR
   make -s V=0
   make install
