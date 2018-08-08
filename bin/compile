@@ -12,7 +12,7 @@ install_opus(){
   curl -O https://archive.mozilla.org/pub/opus/opus-1.2.1.tar.gz
   tar -zxvf opus-1.2.1.tar.gz
   cd opus-1.2.1
-  ./configure --prefix=$PREFIX_DIR
+  ./configure --prefix=/usr
   make -s V=0
   make install
   cd $CURRENT_DIR
