@@ -5,8 +5,6 @@ PREFIX_DIR=$LIB_DIR/build/
 VENDOR_DIR=$BUILD_DIR/vendor
 mkdir -p $PREFIX_DIR
 mkdir -p $VENDOR_DIR
-export LD_RUN_PATH=/usr/local/lib
-export LD_LIBRARY_PATH=/usr/local/lib/
 
 install_opus(){
   [ -d $LIB_DIR ] || mkdir -p $LIB_DIR
